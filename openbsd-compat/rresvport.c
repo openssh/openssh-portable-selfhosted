@@ -59,7 +59,7 @@ rresvport_af(int *alport, sa_family_t af)
 {
 	struct sockaddr_storage ss;
 	struct sockaddr *sa;
-	u_int16_t *portp;
+	uint16_t *portp;
 	int s;
 	socklen_t salen;
 

@@ -790,7 +790,7 @@ main(int ac, char **av)
 	const char *remote_ip, *rdomain;
 	char *line, *laddr, *logfile = NULL;
 	u_int i;
-	u_int64_t ibytes, obytes;
+	uint64_t ibytes, obytes;
 	mode_t new_umask;
 	Authctxt *authctxt;
 	struct connection_info *connection_info = NULL;

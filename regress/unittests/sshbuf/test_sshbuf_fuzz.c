@@ -28,7 +28,7 @@ sshbuf_fuzz_tests(void)
 	struct sshbuf *p1;
 	u_char *dp;
 	size_t sz, sz2, i, ntests = NUM_FUZZ_TESTS;
-	u_int32_t r;
+	uint32_t r;
 	int ret;
 
 	if (test_is_fast())

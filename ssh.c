@@ -1950,7 +1950,7 @@ forwarding_success(void)
 
 /* Callback for remote forward global requests */
 static void
-ssh_confirm_remote_forward(struct ssh *ssh, int type, u_int32_t seq, void *ctxt)
+ssh_confirm_remote_forward(struct ssh *ssh, int type, uint32_t seq, void *ctxt)
 {
 	struct Forward *rfwd = (struct Forward *)ctxt;
 	u_int port;

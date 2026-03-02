@@ -45,12 +45,12 @@ struct ssh_krl;
 
 struct ssh_krl *ssh_krl_init(void);
 void ssh_krl_free(struct ssh_krl *krl);
-void ssh_krl_set_version(struct ssh_krl *krl, u_int64_t version);
+void ssh_krl_set_version(struct ssh_krl *krl, uint64_t version);
 int ssh_krl_set_comment(struct ssh_krl *krl, const char *comment);
 int ssh_krl_revoke_cert_by_serial(struct ssh_krl *krl,
-    const struct sshkey *ca_key, u_int64_t serial);
+    const struct sshkey *ca_key, uint64_t serial);
 int ssh_krl_revoke_cert_by_serial_range(struct ssh_krl *krl,
-    const struct sshkey *ca_key, u_int64_t lo, u_int64_t hi);
+    const struct sshkey *ca_key, uint64_t lo, uint64_t hi);
 int ssh_krl_revoke_cert_by_key_id(struct ssh_krl *krl,
     const struct sshkey *ca_key, const char *key_id);
 int ssh_krl_revoke_key_explicit(struct ssh_krl *krl, const struct sshkey *key);

@@ -33,13 +33,13 @@ typedef struct Attrib Attrib;
 
 /* File attributes */
 struct Attrib {
-	u_int32_t	flags;
-	u_int64_t	size;
-	u_int32_t	uid;
-	u_int32_t	gid;
-	u_int32_t	perm;
-	u_int32_t	atime;
-	u_int32_t	mtime;
+	uint32_t	flags;
+	uint64_t	size;
+	uint32_t	uid;
+	uint32_t	gid;
+	uint32_t	perm;
+	uint32_t	atime;
+	uint32_t	mtime;
 };
 
 void	 attrib_clear(Attrib *);

@@ -39,10 +39,10 @@ attempt_parse_blob(u_char *blob, size_t len)
 #endif /* WITH_OPENSSL */
 	u_char *s;
 	size_t l;
-	u_int8_t u8;
-	u_int16_t u16;
-	u_int32_t u32;
-	u_int64_t u64;
+	uint8_t u8;
+	uint16_t u16;
+	uint32_t u32;
+	uint64_t u64;
 
 	p1 = sshbuf_new();
 	ASSERT_PTR_NE(p1, NULL);

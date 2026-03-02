@@ -255,7 +255,7 @@ int
 ssh_packet_next(struct ssh *ssh, u_char *typep)
 {
 	int r;
-	u_int32_t seqnr;
+	uint32_t seqnr;
 	u_char type;
 
 	/*

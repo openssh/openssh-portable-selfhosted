@@ -53,10 +53,10 @@
 extern ServerOptions options;
 extern struct authmethod_cfg methodcfg_gssapi;
 
-static int input_gssapi_token(int type, u_int32_t plen, struct ssh *ssh);
-static int input_gssapi_mic(int type, u_int32_t plen, struct ssh *ssh);
-static int input_gssapi_exchange_complete(int type, u_int32_t plen, struct ssh *ssh);
-static int input_gssapi_errtok(int, u_int32_t, struct ssh *);
+static int input_gssapi_token(int type, uint32_t plen, struct ssh *ssh);
+static int input_gssapi_mic(int type, uint32_t plen, struct ssh *ssh);
+static int input_gssapi_exchange_complete(int type, uint32_t plen, struct ssh *ssh);
+static int input_gssapi_errtok(int, uint32_t, struct ssh *);
 
 /*
  * We only support those mechanisms that we know about (ie ones that we know
@@ -143,7 +143,7 @@ userauth_gssapi(struct ssh *ssh, const char *method)
 }
 
 static int
-input_gssapi_token(int type, u_int32_t plen, struct ssh *ssh)
+input_gssapi_token(int type, uint32_t plen, struct ssh *ssh)
 {
 	Authctxt *authctxt = ssh->authctxt;
 	Gssctxt *gssctxt;
@@ -207,7 +207,7 @@ input_gssapi_token(int type, u_int32_t plen, struct ssh *ssh)
 }
 
 static int
-input_gssapi_errtok(int type, u_int32_t plen, struct ssh *ssh)
+input_gssapi_errtok(int type, uint32_t plen, struct ssh *ssh)
 {
 	Authctxt *authctxt = ssh->authctxt;
 	Gssctxt *gssctxt;
@@ -251,7 +251,7 @@ input_gssapi_errtok(int type, u_int32_t plen, struct ssh *ssh)
  */
 
 static int
-input_gssapi_exchange_complete(int type, u_int32_t plen, struct ssh *ssh)
+input_gssapi_exchange_complete(int type, uint32_t plen, struct ssh *ssh)
 {
 	Authctxt *authctxt = ssh->authctxt;
 	int r, authenticated;
@@ -279,7 +279,7 @@ input_gssapi_exchange_complete(int type, u_int32_t plen, struct ssh *ssh)
 }
 
 static int
-input_gssapi_mic(int type, u_int32_t plen, struct ssh *ssh)
+input_gssapi_mic(int type, uint32_t plen, struct ssh *ssh)
 {
 	Authctxt *authctxt = ssh->authctxt;
 	Gssctxt *gssctxt;

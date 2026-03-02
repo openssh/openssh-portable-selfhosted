@@ -51,7 +51,7 @@ extern ServerOptions options;
 
 static int auth2_challenge_start(struct ssh *);
 static int send_userauth_info_request(struct ssh *);
-static int input_userauth_info_response(int, u_int32_t, struct ssh *);
+static int input_userauth_info_response(int, uint32_t, struct ssh *);
 
 #ifdef BSD_AUTH
 extern KbdintDevice mm_bsdauth_device;
@@ -291,7 +291,7 @@ send_userauth_info_request(struct ssh *ssh)
 }
 
 static int
-input_userauth_info_response(int type, u_int32_t seq, struct ssh *ssh)
+input_userauth_info_response(int type, uint32_t seq, struct ssh *ssh)
 {
 	Authctxt *authctxt = ssh->authctxt;
 	KbdintAuthctxt *kbdintctxt;

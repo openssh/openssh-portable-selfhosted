@@ -55,7 +55,7 @@ void	 client_filter_cleanup(struct ssh *, int, void *);
 int	 client_simple_escape_filter(struct ssh *, Channel *, char *, int);
 
 /* Global request confirmation callbacks */
-typedef void global_confirm_cb(struct ssh *, int, u_int32_t, void *);
+typedef void global_confirm_cb(struct ssh *, int, uint32_t, void *);
 void	 client_register_global_confirm(global_confirm_cb *, void *);
 
 /* Channel request confirmation callbacks */

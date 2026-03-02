@@ -52,8 +52,8 @@
 #include "sshbuf.h"
 #include "misc.h"
 
-static int input_kex_dh_gex_group(int, u_int32_t, struct ssh *);
-static int input_kex_dh_gex_reply(int, u_int32_t, struct ssh *);
+static int input_kex_dh_gex_group(int, uint32_t, struct ssh *);
+static int input_kex_dh_gex_reply(int, uint32_t, struct ssh *);
 
 int
 kexgex_client(struct ssh *ssh)
@@ -91,7 +91,7 @@ kexgex_client(struct ssh *ssh)
 }
 
 static int
-input_kex_dh_gex_group(int type, u_int32_t seq, struct ssh *ssh)
+input_kex_dh_gex_group(int type, uint32_t seq, struct ssh *ssh)
 {
 	struct kex *kex = ssh->kex;
 	BIGNUM *p = NULL, *g = NULL;
@@ -141,7 +141,7 @@ out:
 }
 
 static int
-input_kex_dh_gex_reply(int type, u_int32_t seq, struct ssh *ssh)
+input_kex_dh_gex_reply(int type, uint32_t seq, struct ssh *ssh)
 {
 	struct kex *kex = ssh->kex;
 	BIGNUM *dh_server_pub = NULL;

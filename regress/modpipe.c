@@ -44,7 +44,7 @@ usage(void)
 struct modification {
 	enum { MOD_XOR, MOD_AND_OR } what;
 	unsigned long long offset;
-	u_int8_t m1, m2;
+	uint8_t m1, m2;
 };
 
 static void

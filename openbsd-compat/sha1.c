@@ -46,18 +46,18 @@
 #define R4(v,w,x,y,z,i) z+=(w^x^y)+blk(i)+0xCA62C1D6+rol(v,5);w=rol(w,30);
 
 typedef union {
-	u_int8_t c[64];
-	u_int32_t l[16];
+	uint8_t c[64];
+	uint32_t l[16];
 } CHAR64LONG16;
 
 /*
  * Hash a single 512-bit block. This is the core of the algorithm.
  */
 void
-SHA1Transform(u_int32_t state[5], const u_int8_t buffer[SHA1_BLOCK_LENGTH])
+SHA1Transform(uint32_t state[5], const uint8_t buffer[SHA1_BLOCK_LENGTH])
 {
-	u_int32_t a, b, c, d, e;
-	u_int8_t workspace[SHA1_BLOCK_LENGTH];
+	uint32_t a, b, c, d, e;
+	uint8_t workspace[SHA1_BLOCK_LENGTH];
 	CHAR64LONG16 *block = (CHAR64LONG16 *)workspace;
 
 	(void)memcpy(block, buffer, SHA1_BLOCK_LENGTH);
@@ -126,17 +126,17 @@ DEF_WEAK(SHA1Init);
  * Run your data through this.
  */
 void
-SHA1Update(SHA1_CTX *context, const u_int8_t *data, size_t len)
+SHA1Update(SHA1_CTX *context, const uint8_t *data, size_t len)
 {
 	size_t i, j;
 
 	j = (size_t)((context->count >> 3) & 63);
-	context->count += ((u_int64_t)len << 3);
+	context->count += ((uint64_t)len << 3);
 	if ((j + len) > 63) {
 		(void)memcpy(&context->buffer[j], data, (i = 64-j));
 		SHA1Transform(context->state, context->buffer);
 		for ( ; i + 63 < len; i += 64)
-			SHA1Transform(context->state, (u_int8_t *)&data[i]);
+			SHA1Transform(context->state, (uint8_t *)&data[i]);
 		j = 0;
 	} else {
 		i = 0;
@@ -152,28 +152,28 @@ DEF_WEAK(SHA1Update);
 void
 SHA1Pad(SHA1_CTX *context)
 {
-	u_int8_t finalcount[8];
+	uint8_t finalcount[8];
 	u_int i;
 
 	for (i = 0; i < 8; i++) {
-		finalcount[i] = (u_int8_t)((context->count >>
+		finalcount[i] = (uint8_t)((context->count >>
 		    ((7 - (i & 7)) * 8)) & 255);	/* Endian independent */
 	}
-	SHA1Update(context, (u_int8_t *)"\200", 1);
+	SHA1Update(context, (uint8_t *)"\200", 1);
 	while ((context->count & 504) != 448)
-		SHA1Update(context, (u_int8_t *)"\0", 1);
+		SHA1Update(context, (uint8_t *)"\0", 1);
 	SHA1Update(context, finalcount, 8); /* Should cause a SHA1Transform() */
 }
 DEF_WEAK(SHA1Pad);
 
 void
-SHA1Final(u_int8_t digest[SHA1_DIGEST_LENGTH], SHA1_CTX *context)
+SHA1Final(uint8_t digest[SHA1_DIGEST_LENGTH], SHA1_CTX *context)
 {
 	u_int i;
 
 	SHA1Pad(context);
 	for (i = 0; i < SHA1_DIGEST_LENGTH; i++) {
-		digest[i] = (u_int8_t)
+		digest[i] = (uint8_t)
 		   ((context->state[i>>2] >> ((3-(i & 3)) * 8) ) & 255);
 	}
 	explicit_bzero(context, sizeof(*context));

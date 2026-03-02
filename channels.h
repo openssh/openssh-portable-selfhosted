@@ -325,18 +325,18 @@ void channel_clear_timeouts(struct ssh *);
 /* mux proxy support */
 
 int	 channel_proxy_downstream(struct ssh *, Channel *mc);
-int	 channel_proxy_upstream(Channel *, int, u_int32_t, struct ssh *);
+int	 channel_proxy_upstream(Channel *, int, uint32_t, struct ssh *);
 
 /* protocol handler */
 
-int	 channel_input_data(int, u_int32_t, struct ssh *);
-int	 channel_input_extended_data(int, u_int32_t, struct ssh *);
-int	 channel_input_ieof(int, u_int32_t, struct ssh *);
-int	 channel_input_oclose(int, u_int32_t, struct ssh *);
-int	 channel_input_open_confirmation(int, u_int32_t, struct ssh *);
-int	 channel_input_open_failure(int, u_int32_t, struct ssh *);
-int	 channel_input_window_adjust(int, u_int32_t, struct ssh *);
-int	 channel_input_status_confirm(int, u_int32_t, struct ssh *);
+int	 channel_input_data(int, uint32_t, struct ssh *);
+int	 channel_input_extended_data(int, uint32_t, struct ssh *);
+int	 channel_input_ieof(int, uint32_t, struct ssh *);
+int	 channel_input_oclose(int, uint32_t, struct ssh *);
+int	 channel_input_open_confirmation(int, uint32_t, struct ssh *);
+int	 channel_input_open_failure(int, uint32_t, struct ssh *);
+int	 channel_input_window_adjust(int, uint32_t, struct ssh *);
+int	 channel_input_status_confirm(int, uint32_t, struct ssh *);
 
 /* file descriptor handling (read/write) */
 struct pollfd;

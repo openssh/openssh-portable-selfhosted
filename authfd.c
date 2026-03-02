@@ -258,7 +258,7 @@ int
 ssh_fetch_identitylist(int sock, struct ssh_identitylist **idlp)
 {
 	u_char type;
-	u_int32_t num, i;
+	uint32_t num, i;
 	struct sshbuf *msg;
 	struct ssh_identitylist *idl = NULL;
 	int r;

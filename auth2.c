@@ -88,8 +88,8 @@ Authmethod *authmethods[] = {
 
 /* protocol */
 
-static int input_service_request(int, u_int32_t, struct ssh *);
-static int input_userauth_request(int, u_int32_t, struct ssh *);
+static int input_service_request(int, uint32_t, struct ssh *);
+static int input_userauth_request(int, uint32_t, struct ssh *);
 
 /* helper */
 static Authmethod *authmethod_byname(const char *);
@@ -181,7 +181,7 @@ do_authentication2(struct ssh *ssh)
 }
 
 static int
-input_service_request(int type, u_int32_t seq, struct ssh *ssh)
+input_service_request(int type, uint32_t seq, struct ssh *ssh)
 {
 	Authctxt *authctxt = ssh->authctxt;
 	char *service = NULL;
@@ -266,7 +266,7 @@ ensure_minimum_time_since(double start, double seconds)
 }
 
 static int
-input_userauth_request(int type, u_int32_t seq, struct ssh *ssh)
+input_userauth_request(int type, uint32_t seq, struct ssh *ssh)
 {
 	Authctxt *authctxt = ssh->authctxt;
 	Authmethod *m = NULL;

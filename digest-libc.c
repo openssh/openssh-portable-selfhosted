@@ -50,8 +50,8 @@
 #include "digest.h"
 
 typedef void md_init_fn(void *mdctx);
-typedef void md_update_fn(void *mdctx, const u_int8_t *m, size_t mlen);
-typedef void md_final_fn(u_int8_t[], void *mdctx);
+typedef void md_update_fn(void *mdctx, const uint8_t *m, size_t mlen);
+typedef void md_final_fn(uint8_t[], void *mdctx);
 
 struct ssh_digest_ctx {
 	int alg;

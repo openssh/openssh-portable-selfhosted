@@ -102,11 +102,11 @@ enum sshkey_private_format {
 struct sshkey_cert {
 	struct sshbuf	*certblob; /* Kept around for use on wire */
 	u_int		 type; /* SSH2_CERT_TYPE_USER or SSH2_CERT_TYPE_HOST */
-	u_int64_t	 serial;
+	uint64_t	 serial;
 	char		*key_id;
 	u_int		 nprincipals;
 	char		**principals;
-	u_int64_t	 valid_after, valid_before;
+	uint64_t	 valid_after, valid_before;
 	struct sshbuf	*critical;
 	struct sshbuf	*extensions;
 	struct sshkey	*signature_key;

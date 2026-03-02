@@ -420,7 +420,7 @@ sshaix_getnameinfo(const struct sockaddr *sa, size_t salen, char *host,
     size_t hostlen, char *serv, size_t servlen, int flags)
 {
 	struct sockaddr_in6 *sa6;
-	u_int32_t *a6;
+	uint32_t *a6;
 
 	if (flags & (NI_NUMERICHOST|NI_NUMERICSERV) &&
 	    sa->sa_family == AF_INET6) {

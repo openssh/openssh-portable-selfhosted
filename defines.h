@@ -240,19 +240,19 @@ typedef int int32_t;
 /* If sys/types.h does not supply u_intXX_t, supply them ourselves */
 #ifndef HAVE_U_INTXX_T
 # ifdef HAVE_UINTXX_T
-typedef uint8_t u_int8_t;
-typedef uint16_t u_int16_t;
-typedef uint32_t u_int32_t;
+typedef uint8_t uint8_t;
+typedef uint16_t uint16_t;
+typedef uint32_t uint32_t;
 # define HAVE_U_INTXX_T 1
 # else
-typedef unsigned char u_int8_t;
+typedef unsigned char uint8_t;
 #  if (SIZEOF_SHORT_INT == 2)
-typedef unsigned short int u_int16_t;
+typedef unsigned short int uint16_t;
 #  else
 #    error "16 bit int type not found."
 #  endif
 #  if (SIZEOF_INT == 4)
-typedef unsigned int u_int32_t;
+typedef unsigned int uint32_t;
 #  else
 #    error "32 bit int type not found."
 #  endif
@@ -287,19 +287,19 @@ typedef long long int int64_t;
 #endif
 #ifndef HAVE_U_INT64_T
 # if (SIZEOF_LONG_INT == 8)
-typedef unsigned long int u_int64_t;
+typedef unsigned long int uint64_t;
 # else
 #  if (SIZEOF_LONG_LONG_INT == 8)
-typedef unsigned long long int u_int64_t;
+typedef unsigned long long int uint64_t;
 #  endif
 # endif
 #endif
 
 #ifndef HAVE_UINTXX_T
-typedef u_int8_t uint8_t;
-typedef u_int16_t uint16_t;
-typedef u_int32_t uint32_t;
-typedef u_int64_t uint64_t;
+typedef uint8_t uint8_t;
+typedef uint16_t uint16_t;
+typedef uint32_t uint32_t;
+typedef uint64_t uint64_t;
 #endif
 
 #ifndef HAVE_INTMAX_T
@@ -404,10 +404,10 @@ struct	sockaddr_un {
 #endif /* HAVE_SYS_UN_H */
 
 #ifndef HAVE_IN_ADDR_T
-typedef u_int32_t	in_addr_t;
+typedef uint32_t	in_addr_t;
 #endif
 #ifndef HAVE_IN_PORT_T
-typedef u_int16_t	in_port_t;
+typedef uint16_t	in_port_t;
 #endif
 
 #if defined(BROKEN_SYS_TERMIO_H) && !defined(_STRUCT_WINSIZE)
@@ -584,8 +584,8 @@ struct winsize {
 
 #if !defined(IN6_IS_ADDR_V4MAPPED)
 # define IN6_IS_ADDR_V4MAPPED(a) \
-	((((u_int32_t *) (a))[0] == 0) && (((u_int32_t *) (a))[1] == 0) && \
-	 (((u_int32_t *) (a))[2] == htonl (0xffff)))
+	((((uint32_t *) (a))[0] == 0) && (((uint32_t *) (a))[1] == 0) && \
+	 (((uint32_t *) (a))[2] == htonl (0xffff)))
 #endif /* !defined(IN6_IS_ADDR_V4MAPPED) */
 
 #if !defined(__GNUC__) || (__GNUC__ < 2)
@@ -786,11 +786,11 @@ struct winsize {
 #ifdef FSID_HAS_VAL
 /* encode f_fsid into a 64 bit value  */
 #define FSID_TO_ULONG(f) \
-	((((u_int64_t)(f).val[0] & 0xffffffffUL) << 32) | \
+	((((uint64_t)(f).val[0] & 0xffffffffUL) << 32) | \
 	    ((f).val[1] & 0xffffffffUL))
 #elif defined(FSID_HAS___VAL)
 #define FSID_TO_ULONG(f) \
-	((((u_int64_t)(f).__val[0] & 0xffffffffUL) << 32) | \
+	((((uint64_t)(f).__val[0] & 0xffffffffUL) << 32) | \
 	    ((f).__val[1] & 0xffffffffUL))
 #else
 # define FSID_TO_ULONG(f) ((f))

@@ -316,7 +316,7 @@ sys_tun_infilter(struct ssh *ssh, struct Channel *c, char *buf, int _len)
 	struct ip iph;
 #endif
 #if defined(SSH_TUN_PREPEND_AF) || defined(SSH_TUN_COMPAT_AF)
-	u_int32_t af;
+	uint32_t af;
 #endif
 
 	/* XXX update channel input filter API to use unsigned length */
@@ -354,7 +354,7 @@ sys_tun_outfilter(struct ssh *ssh, struct Channel *c,
     u_char **data, size_t *dlen)
 {
 	u_char *buf;
-	u_int32_t af;
+	uint32_t af;
 	int r;
 
 	/* XXX new API is incompatible with this signature. */

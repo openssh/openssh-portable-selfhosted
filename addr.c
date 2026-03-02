@@ -61,7 +61,7 @@ masklen_valid(int af, u_int masklen)
 
 static int
 addr_xaddr_to_sa(const struct xaddr *xa, struct sockaddr *sa, socklen_t *len,
-    u_int16_t port)
+    uint16_t port)
 {
 	struct sockaddr_in *in4 = (struct sockaddr_in *)sa;
 	struct sockaddr_in6 *in6 = (struct sockaddr_in6 *)sa;

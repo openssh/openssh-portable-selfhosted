@@ -252,7 +252,7 @@ fail:
 void
 freerrset(struct rrsetinfo *rrset)
 {
-	u_int16_t i;
+	uint16_t i;
 
 	if (rrset == NULL)
 		return;

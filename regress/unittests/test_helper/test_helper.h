@@ -89,16 +89,16 @@ void assert_ptr(const char *file, int line,
     const void *aa1, const void *aa2, enum test_predicate pred);
 void assert_u8(const char *file, int line,
     const char *a1, const char *a2,
-    u_int8_t aa1, u_int8_t aa2, enum test_predicate pred);
+    uint8_t aa1, uint8_t aa2, enum test_predicate pred);
 void assert_u16(const char *file, int line,
     const char *a1, const char *a2,
-    u_int16_t aa1, u_int16_t aa2, enum test_predicate pred);
+    uint16_t aa1, uint16_t aa2, enum test_predicate pred);
 void assert_u32(const char *file, int line,
     const char *a1, const char *a2,
-    u_int32_t aa1, u_int32_t aa2, enum test_predicate pred);
+    uint32_t aa1, uint32_t aa2, enum test_predicate pred);
 void assert_u64(const char *file, int line,
     const char *a1, const char *a2,
-    u_int64_t aa1, u_int64_t aa2, enum test_predicate pred);
+    uint64_t aa1, uint64_t aa2, enum test_predicate pred);
 void assert_double(const char *file, int line,
     const char *a1, const char *a2,
     double aa1, double aa2, enum test_predicate pred);

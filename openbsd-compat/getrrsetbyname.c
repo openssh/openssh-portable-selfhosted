@@ -90,8 +90,8 @@ struct __res_state _res;
 #ifndef GETSHORT
 #define GETSHORT(s, cp) { \
 	u_char *t_cp = (u_char *)(cp); \
-	(s) = ((u_int16_t)t_cp[0] << 8) \
-	    | ((u_int16_t)t_cp[1]) \
+	(s) = ((uint16_t)t_cp[0] << 8) \
+	    | ((uint16_t)t_cp[1]) \
 	    ; \
 	(cp) += INT16SZ; \
 }
@@ -100,10 +100,10 @@ struct __res_state _res;
 #ifndef GETLONG
 #define GETLONG(l, cp) { \
 	u_char *t_cp = (u_char *)(cp); \
-	(l) = ((u_int32_t)t_cp[0] << 24) \
-	    | ((u_int32_t)t_cp[1] << 16) \
-	    | ((u_int32_t)t_cp[2] << 8) \
-	    | ((u_int32_t)t_cp[3]) \
+	(l) = ((uint32_t)t_cp[0] << 24) \
+	    | ((uint32_t)t_cp[1] << 16) \
+	    | ((uint32_t)t_cp[2] << 8) \
+	    | ((uint32_t)t_cp[3]) \
 	    ; \
 	(cp) += INT32SZ; \
 }
@@ -127,19 +127,19 @@ struct __res_state _res;
 /*
  * Routines to insert/extract short/long's.
  */
-static u_int16_t
+static uint16_t
 _getshort(const u_char *msgp)
 {
-	u_int16_t u;
+	uint16_t u;
 
 	GETSHORT(u, msgp);
 	return (u);
 }
 
-static u_int32_t
+static uint32_t
 _getlong(const u_char *msgp)
 {
-	u_int32_t u;
+	uint32_t u;
 
 	GETLONG(u, msgp);
 	return (u);
@@ -152,17 +152,17 @@ _getlong(const u_char *msgp)
 
 struct dns_query {
 	char			*name;
-	u_int16_t		type;
-	u_int16_t		class;
+	uint16_t		type;
+	uint16_t		class;
 	struct dns_query	*next;
 };
 
 struct dns_rr {
 	char			*name;
-	u_int16_t		type;
-	u_int16_t		class;
-	u_int16_t		ttl;
-	u_int16_t		size;
+	uint16_t		type;
+	uint16_t		class;
+	uint16_t		ttl;
+	uint16_t		size;
 	void			*rdata;
 	struct dns_rr		*next;
 };
@@ -185,7 +185,7 @@ static void free_dns_query(struct dns_query *);
 static void free_dns_rr(struct dns_rr *);
 static void free_dns_response(struct dns_response *);
 
-static int count_dns_rr(struct dns_rr *, u_int16_t, u_int16_t);
+static int count_dns_rr(struct dns_rr *, uint16_t, uint16_t);
 
 int
 getrrsetbyname(const char *hostname, unsigned int rdclass,
@@ -354,7 +354,7 @@ fail:
 void
 freerrset(struct rrsetinfo *rrset)
 {
-	u_int16_t i;
+	uint16_t i;
 
 	if (rrset == NULL)
 		return;
@@ -632,7 +632,7 @@ free_dns_response(struct dns_response *p)
 }
 
 static int
-count_dns_rr(struct dns_rr *p, u_int16_t class, u_int16_t type)
+count_dns_rr(struct dns_rr *p, uint16_t class, uint16_t type)
 {
 	int n = 0;
 

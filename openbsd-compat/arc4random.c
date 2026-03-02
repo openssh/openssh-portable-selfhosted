@@ -237,7 +237,7 @@ void
 arc4random_buf(void *_buf, size_t n)
 {
 	size_t i;
-	u_int32_t r = 0;
+	uint32_t r = 0;
 	char *buf = (char *)_buf;
 
 	for (i = 0; i < n; i++) {

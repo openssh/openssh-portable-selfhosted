@@ -466,7 +466,7 @@ sshkey_tests(void)
 	ASSERT_PTR_NE(k1->cert->principals[3], NULL);
 	k1->cert->nprincipals = 4;
 	k1->cert->valid_after = 0;
-	k1->cert->valid_before = (u_int64_t)-1;
+	k1->cert->valid_before = (uint64_t)-1;
 	sshbuf_free(k1->cert->critical);
 	k1->cert->critical = sshbuf_new();
 	ASSERT_PTR_NE(k1->cert->critical, NULL);

@@ -37,7 +37,7 @@
 #include "ssherr.h"
 
 int
-dispatch_protocol_error(int type, u_int32_t seq, struct ssh *ssh)
+dispatch_protocol_error(int type, uint32_t seq, struct ssh *ssh)
 {
 	int r;
 
@@ -51,7 +51,7 @@ dispatch_protocol_error(int type, u_int32_t seq, struct ssh *ssh)
 }
 
 int
-dispatch_protocol_ignore(int type, u_int32_t seq, struct ssh *ssh)
+dispatch_protocol_ignore(int type, uint32_t seq, struct ssh *ssh)
 {
 	logit_f("type %d seq %u", type, seq);
 	return 0;
@@ -88,7 +88,7 @@ ssh_dispatch_run(struct ssh *ssh, int mode, volatile sig_atomic_t *done)
 {
 	int r;
 	u_char type;
-	u_int32_t seqnr;
+	uint32_t seqnr;
 
 	for (;;) {
 		if (mode == DISPATCH_BLOCK) {

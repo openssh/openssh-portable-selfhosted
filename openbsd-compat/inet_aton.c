@@ -86,7 +86,7 @@ inet_addr(const char *cp)
 int
 inet_aton(const char *cp, struct in_addr *addr)
 {
-	u_int32_t val;
+	uint32_t val;
 	int base, n;
 	char c;
 	u_int parts[4];

@@ -1649,7 +1649,7 @@ fail:
 
 static struct sshkey *
 pkcs11_rsa_generate_private_key(struct pkcs11_provider *p, CK_ULONG slotidx,
-    char *label, CK_ULONG bits, CK_BYTE keyid, u_int32_t *err)
+    char *label, CK_ULONG bits, CK_BYTE keyid, uint32_t *err)
 {
 	struct pkcs11_slotinfo	*si;
 	char			*plabel = label ? label : "";
@@ -1769,7 +1769,7 @@ static struct ec_curve_info {
 
 static struct sshkey *
 pkcs11_ecdsa_generate_private_key(struct pkcs11_provider *p, CK_ULONG slotidx,
-    char *label, CK_ULONG bits, CK_BYTE keyid, u_int32_t *err)
+    char *label, CK_ULONG bits, CK_BYTE keyid, uint32_t *err)
 {
 	struct pkcs11_slotinfo	*si;
 	char			*plabel = label ? label : "";
@@ -2101,7 +2101,7 @@ pkcs11_key_free(struct sshkey *key)
 #ifdef WITH_PKCS11_KEYGEN
 struct sshkey *
 pkcs11_gakp(char *provider_id, char *pin, unsigned int slotidx, char *label,
-    unsigned int type, unsigned int bits, unsigned char keyid, u_int32_t *err)
+    unsigned int type, unsigned int bits, unsigned char keyid, uint32_t *err)
 {
 	struct pkcs11_provider	*p = NULL;
 	struct pkcs11_slotinfo	*si;
@@ -2167,7 +2167,7 @@ out:
 
 struct sshkey *
 pkcs11_destroy_keypair(char *provider_id, char *pin, unsigned long slotidx,
-    unsigned char keyid, u_int32_t *err)
+    unsigned char keyid, uint32_t *err)
 {
 	struct pkcs11_provider	*p = NULL;
 	struct pkcs11_slotinfo	*si;
